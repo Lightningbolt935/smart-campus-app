@@ -46,7 +46,7 @@ const MODULES: Module[] = [
     icon: "🗺️",
     accent: "#8B5CF6",
     bg: "#F5F3FF",
-    href: "/campus-map",
+    href: "/CampusMapScreen",
   },
   {
     id: "parking",
