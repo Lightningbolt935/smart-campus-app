@@ -1,10 +1,346 @@
-export interface BusRoute {
-  id: string;
-  name: string;
-  stops: number;
-  nextArrival: string;
-}
+export type BusStop = {
+  stop: string;
+  time: string;
+};
 
-export function getBusRoutes(): BusRoute[] {
-  return [];
-}
+export type BusRoute = {
+  route_no: string;
+  route_name: string;
+  stops: BusStop[];
+  campusArrival: string;
+};
+
+export const busRoutes: BusRoute[] = [
+  {
+    route_no: "11", route_name: "Avadi", campusArrival: "07:40",
+    stops: [
+      { stop: "Avadi", time: "06:15" },
+      { stop: "Decathlon Service Road", time: "06:40" },
+      { stop: "Porur Toll Gate", time: "06:45" },
+    ],
+  },
+  {
+    route_no: "11A", route_name: "Waves", campusArrival: "07:40",
+    stops: [
+      { stop: "Waves", time: "06:30" },
+      { stop: "Collector Nagar", time: "06:32" },
+      { stop: "Golden Flats", time: "06:35" },
+    ],
+  },
+  {
+    route_no: "11B", route_name: "Ambattur", campusArrival: "07:40",
+    stops: [
+      { stop: "Ambattur OT", time: "06:25" },
+      { stop: "Telephone Exchange", time: "06:32" },
+      { stop: "Porur Toll Gate", time: "06:53" },
+    ],
+  },
+  {
+    route_no: "11C", route_name: "Thirumullaivoyal", campusArrival: "07:40",
+    stops: [
+      { stop: "VGN Apartments", time: "06:20" },
+      { stop: "Thirumullaivoyal", time: "06:23" },
+      { stop: "Saraswathi Nagar", time: "06:25" },
+      { stop: "Dunlop", time: "06:28" },
+      { stop: "Ambattur Estate", time: "06:30" },
+      { stop: "Wavin", time: "06:35" },
+    ],
+  },
+  {
+    route_no: "11D", route_name: "Avadi", campusArrival: "07:40",
+    stops: [
+      { stop: "Avadi", time: "06:05" },
+      { stop: "Vaishnava College", time: "06:12" },
+      { stop: "Saraswathi Nagar", time: "06:18" },
+      { stop: "Ambattur OT", time: "06:20" },
+      { stop: "Dunlop", time: "06:28" },
+      { stop: "Ambattur Estate", time: "06:30" },
+      { stop: "Golden Flats", time: "06:35" },
+      { stop: "Collector Nagar", time: "06:38" },
+      { stop: "Thirumangalam", time: "06:40" },
+      { stop: "Nerkundram", time: "06:50" },
+      { stop: "Maduravoyal", time: "07:00" },
+      { stop: "Porur Toll Gate", time: "07:05" },
+    ],
+  },
+  {
+    route_no: "22", route_name: "Mylapore", campusArrival: "07:40",
+    stops: [
+      { stop: "Ezhilagam (Kannagi Silai)", time: "06:05" },
+      { stop: "V House", time: "06:08" },
+      { stop: "Yellow Pages (Ajantha)", time: "06:12" },
+      { stop: "Valluvar Silai", time: "06:15" },
+      { stop: "Mylapore LUZ", time: "06:18" },
+    ],
+  },
+  {
+    route_no: "33", route_name: "Avichi School", campusArrival: "07:40",
+    stops: [
+      { stop: "Avichi School", time: "06:15" },
+      { stop: "Mega Mart", time: "06:18" },
+      { stop: "Vembuliamman Kovil", time: "06:20" },
+      { stop: "Kesavarthini", time: "06:22" },
+      { stop: "Valasaravakkam", time: "06:26" },
+      { stop: "Butt Road", time: "06:35" },
+      { stop: "Tambaram Hindu Mission", time: "07:00" },
+    ],
+  },
+  {
+    route_no: "33B", route_name: "Porur Roundana", campusArrival: "07:40",
+    stops: [
+      { stop: "Porur Roundana", time: "06:20" },
+      { stop: "Sakthi Nagar (Saravana Stores)", time: "06:22" },
+      { stop: "Mugalivakkam", time: "06:24" },
+      { stop: "Ramapuram (MIOT)", time: "06:26" },
+    ],
+  },
+  {
+    route_no: "33C", route_name: "Vanagaram", campusArrival: "07:40",
+    stops: [
+      { stop: "Vanagaram Bus Stop", time: "06:10" },
+      { stop: "Velapanchavadi Bus Stop", time: "06:15" },
+      { stop: "Saveetha Dental College", time: "06:20" },
+      { stop: "Kumananchavadi Signal", time: "06:24" },
+      { stop: "Mangadu Bus Stop", time: "06:27" },
+      { stop: "Muthukumaran College", time: "06:30" },
+      { stop: "Kundrathur School", time: "06:35" },
+      { stop: "Kundrathur Bus Stand", time: "06:38" },
+      { stop: "Metha Nagar", time: "06:40" },
+      { stop: "Anakaputhur Bus Stop", time: "06:45" },
+      { stop: "Pammal Bus Stop", time: "06:50" },
+    ],
+  },
+  {
+    route_no: "55ECR", route_name: "Neelangarai", campusArrival: "07:40",
+    stops: [
+      { stop: "Neelangarai", time: "05:55" },
+      { stop: "Palavakkam", time: "05:58" },
+      { stop: "Kottivakkam", time: "06:00" },
+      { stop: "Thiruvanmiyur RTO", time: "06:05" },
+      { stop: "Thiruvanmiyur Kovil", time: "06:08" },
+      { stop: "Thiruvanmiyur JN", time: "06:10" },
+      { stop: "SRP Tools", time: "06:15" },
+      { stop: "Baby Nagar", time: "06:20" },
+    ],
+  },
+  {
+    route_no: "55A", route_name: "Velachery", campusArrival: "07:40",
+    stops: [
+      { stop: "Vijaya Nagar", time: "06:25" },
+      { stop: "Echangadu Signal", time: "06:35" },
+      { stop: "Vels College", time: "06:40" },
+    ],
+  },
+  {
+    route_no: "55B", route_name: "Pallikaranai", campusArrival: "07:40",
+    stops: [
+      { stop: "Puzhudhivakkam (MRTS)", time: "06:20" },
+      { stop: "Pallikaranai Govt School", time: "06:32" },
+      { stop: "Pallikaranai Jayachandran", time: "06:35" },
+    ],
+  },
+  {
+    route_no: "55C", route_name: "Santhosapuram", campusArrival: "07:40",
+    stops: [
+      { stop: "Santhosapuram", time: "06:40" },
+      { stop: "Sempakkam", time: "06:41" },
+      { stop: "Kamarajapuram", time: "06:42" },
+      { stop: "Mahalakshmi Nagar", time: "06:44" },
+      { stop: "Selaiyur", time: "06:47" },
+      { stop: "Christ King School", time: "06:48" },
+      { stop: "Air Force", time: "06:50" },
+    ],
+  },
+  {
+    route_no: "55D", route_name: "Kaiveli", campusArrival: "07:40",
+    stops: [
+      { stop: "Kaiveli", time: "06:25" },
+      { stop: "Balaji Dental College", time: "06:32" },
+      { stop: "Pallikaranai Oil Mill", time: "06:40" },
+    ],
+  },
+  {
+    route_no: "55E", route_name: "Medavakkam", campusArrival: "07:40",
+    stops: [
+      { stop: "Medavakkam (Nilgiris)", time: "06:30" },
+      { stop: "Medavakkam X Road", time: "06:32" },
+      { stop: "Camp Road", time: "06:35" },
+    ],
+  },
+  {
+    route_no: "55F", route_name: "Medavakkam", campusArrival: "07:40",
+    stops: [
+      { stop: "Vijaya Nagar", time: "06:27" },
+      { stop: "Kaiveli", time: "06:30" },
+      { stop: "Balaji Dental College", time: "06:35" },
+      { stop: "Pallikaranai Jayachandran", time: "06:40" },
+      { stop: "Vijaya Nagaram", time: "06:45" },
+      { stop: "Santhosapuram", time: "06:47" },
+      { stop: "Gowrivakkam", time: "06:50" },
+      { stop: "Kamarajapuram", time: "06:52" },
+      { stop: "Mahalakshmi Nagar", time: "06:55" },
+      { stop: "Camp Road", time: "07:00" },
+      { stop: "Poondi Bazzar", time: "07:03" },
+    ],
+  },
+  {
+    route_no: "66", route_name: "Loyola College", campusArrival: "07:40",
+    stops: [
+      { stop: "Valluvar Kottam", time: "06:20" },
+      { stop: "Loyola College", time: "06:25" },
+      { stop: "Choolaimedu", time: "06:30" },
+      { stop: "Metha Nagar", time: "06:32" },
+      { stop: "Ampa Mall", time: "06:37" },
+      { stop: "Maduravoyal (Erikarai)", time: "06:50" },
+    ],
+  },
+  {
+    route_no: "66A", route_name: "Thirumangalam", campusArrival: "07:40",
+    stops: [
+      { stop: "Anna Nagar Roundana", time: "06:30" },
+      { stop: "Shanthi Colony", time: "06:35" },
+      { stop: "Thirumangalam", time: "06:38" },
+      { stop: "Rohini Theatre", time: "06:40" },
+    ],
+  },
+  {
+    route_no: "66B", route_name: "Koyambedu", campusArrival: "07:40",
+    stops: [
+      { stop: "SAF", time: "06:22" },
+      { stop: "MMDA", time: "06:25" },
+      { stop: "Ambica Empire", time: "06:30" },
+      { stop: "Vadapalani", time: "06:32" },
+      { stop: "Ashok Pillar", time: "06:38" },
+      { stop: "Kasi Theatre", time: "06:40" },
+      { stop: "Ekattuthangal", time: "06:42" },
+      { stop: "Guindy Kathipara", time: "06:45" },
+      { stop: "Chrompet MIT", time: "07:00" },
+      { stop: "Perungalathur", time: "07:10" },
+    ],
+  },
+  {
+    route_no: "88", route_name: "Nesapakkam", campusArrival: "07:40",
+    stops: [
+      { stop: "Sathya School", time: "06:25" },
+      { stop: "Pondicherry Guest House", time: "06:27" },
+      { stop: "Nesapakkam", time: "06:30" },
+      { stop: "Hotel Saravanabhavan", time: "06:32" },
+      { stop: "KK Nagar Depot", time: "06:35" },
+      { stop: "Chrompet", time: "07:00" },
+    ],
+  },
+  {
+    route_no: "122", route_name: "Manali", campusArrival: "07:40",
+    stops: [
+      { stop: "Manali", time: "05:50" },
+      { stop: "Pal Pannai", time: "05:55" },
+      { stop: "Thapalpetti", time: "05:57" },
+      { stop: "Moolakadai", time: "06:00" },
+      { stop: "Perambur Church", time: "06:10" },
+      { stop: "Agaram", time: "06:12" },
+      { stop: "Don Bosco School", time: "06:13" },
+      { stop: "Kolathur Moogambigai", time: "06:15" },
+      { stop: "Retteri", time: "06:20" },
+      { stop: "Temple School", time: "06:22" },
+      { stop: "Senthil Nagar", time: "06:25" },
+    ],
+  },
+  {
+    route_no: "122A", route_name: "Redhills", campusArrival: "07:40",
+    stops: [
+      { stop: "Redhills Bus Stand", time: "06:00" },
+      { stop: "Redhills Market", time: "06:03" },
+      { stop: "Nallalaghu Nadar Polytechnic", time: "06:05" },
+      { stop: "Kavankarai", time: "06:07" },
+      { stop: "Puzhal Signal", time: "06:10" },
+      { stop: "Camp Signal", time: "06:13" },
+      { stop: "Narayana School", time: "06:16" },
+      { stop: "Vinayagapuram Bus Stop", time: "06:18" },
+      { stop: "Retteri Bridge", time: "06:20" },
+    ],
+  },
+  {
+    route_no: "133", route_name: "Tiruvottiyur", campusArrival: "07:40",
+    stops: [
+      { stop: "Ernavur Bridge", time: "05:50" },
+      { stop: "Wimco Nagar (Beach Road)", time: "05:51" },
+      { stop: "Tiruvottiyur", time: "05:53" },
+      { stop: "Ellaiamman Kovil", time: "05:55" },
+      { stop: "Thangal", time: "05:57" },
+      { stop: "N4 Police Station", time: "06:00" },
+      { stop: "Kasimedu Signal", time: "06:01" },
+      { stop: "Royapuram Police Station", time: "06:03" },
+      { stop: "Royapuram Bridge Signal", time: "06:05" },
+      { stop: "Beach Station", time: "06:08" },
+      { stop: "Shanthi Theatre", time: "06:15" },
+      { stop: "DMS", time: "06:18" },
+      { stop: "Teynampet Signal", time: "06:20" },
+      { stop: "Nanthanam Signal", time: "06:22" },
+      { stop: "Saidapet", time: "06:25" },
+    ],
+  },
+  {
+    route_no: "144", route_name: "Kelleys", campusArrival: "07:40",
+    stops: [
+      { stop: "Doveton", time: "06:05" },
+      { stop: "Dr. Alagappa Road", time: "06:07" },
+      { stop: "Ponniamman Koil", time: "06:09" },
+      { stop: "Kelleys", time: "06:13" },
+      { stop: "Senthil Hospital", time: "06:15" },
+      { stop: "Ayanavaram Signal", time: "06:17" },
+      { stop: "Noor Hotel", time: "06:19" },
+      { stop: "Joint Office", time: "06:21" },
+      { stop: "Railway Quarters", time: "06:23" },
+      { stop: "ICF", time: "06:25" },
+      { stop: "Nathamuni", time: "06:29" },
+      { stop: "Anna Nagar West Depot", time: "06:34" },
+    ],
+  },
+  {
+    route_no: "177", route_name: "Anna Nagar", campusArrival: "07:40",
+    stops: [
+      { stop: "Korattur", time: "06:05" },
+      { stop: "Saravana Store (Padi)", time: "06:08" },
+      { stop: "Vasantham Colony", time: "06:13" },
+      { stop: "K4 Police Station", time: "06:15" },
+      { stop: "Lotus Colony", time: "06:17" },
+      { stop: "Chinthamani", time: "06:18" },
+      { stop: "Shenoy Nagar", time: "06:20" },
+      { stop: "Aminjikarai Market", time: "06:21" },
+      { stop: "Anna Arch", time: "06:23" },
+      { stop: "Arumbakkam", time: "06:25" },
+      { stop: "Rohini Theatre", time: "06:28" },
+      { stop: "Nerkundram", time: "06:33" },
+      { stop: "Porur Toll Gate", time: "06:40" },
+    ],
+  },
+  {
+    route_no: "188", route_name: "Thoraipakkam", campusArrival: "07:40",
+    stops: [
+      { stop: "Thoraipakkam", time: "06:00" },
+      { stop: "PTC Mettu Kuppam", time: "06:05" },
+      { stop: "Karappakkam", time: "06:10" },
+      { stop: "Sholinganallur Junction", time: "06:15" },
+      { stop: "Sathyabama", time: "06:20" },
+      { stop: "Navalur Signal", time: "06:26" },
+    ],
+  },
+  {
+    route_no: "188A", route_name: "Siruseri", campusArrival: "07:40",
+    stops: [
+      { stop: "Siruseri (Sipcot)", time: "06:30" },
+      { stop: "Kazhipattur (TVH Apartment)", time: "06:32" },
+      { stop: "Padur", time: "06:35" },
+      { stop: "Hindustan College", time: "06:37" },
+      { stop: "Chettinadu Hospital", time: "06:39" },
+      { stop: "Kelambakkam Junction", time: "06:40" },
+      { stop: "Pudhupakkam", time: "06:44" },
+      { stop: "Pudhupakkam (Anjaneyar Kovil)", time: "06:46" },
+      { stop: "Mampakkam", time: "06:50" },
+      { stop: "Keezhkottaiyur", time: "06:55" },
+      { stop: "Kandigai", time: "07:00" },
+      { stop: "Kolappakkam", time: "07:05" },
+      { stop: "Vandalur", time: "07:10" },
+    ],
+  },
+];
