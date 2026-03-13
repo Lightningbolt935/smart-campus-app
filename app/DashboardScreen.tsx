@@ -22,10 +22,10 @@ type Module = {
 
 const MODULES: Module[] = [
   { id: 'bus',      label: 'Bus Tracking', subtitle: 'Routes & Schedules', icon: '🚌', accent: '#FF6B35', bg: '#FFF4EF', href: '/BusTrackingScreen' },
-  { id: 'canteen',  label: 'Canteen',      subtitle: 'Order Food',         icon: '🍱', accent: '#0EA5E9', bg: '#EFF8FF', href: '/canteen'           },
+  { id: 'canteen',  label: 'Canteen',      subtitle: 'Order Food',         icon: '🍱', accent: '#0EA5E9', bg: '#EFF8FF', href: '/CanteenScreen'           },
   { id: 'map',      label: 'Campus Map',   subtitle: 'Navigate Campus',    icon: '🗺️', accent: '#8B5CF6', bg: '#F5F3FF', href: '/CampusMapScreen'        },
   { id: 'parking',  label: 'Parking ID',   subtitle: 'Digital Pass',       icon: '🅿️', accent: '#F59E0B', bg: '#FFFBEB', href: '/parking-id'        },
-  { id: 'helpline', label: 'Helpline',     subtitle: 'Important Contacts', icon: '📞', accent: '#10B981', bg: '#ECFDF5', href: '/helpline'           },
+  { id: 'helpline', label: 'Helpline',     subtitle: 'Important Contacts', icon: '📞', accent: '#10B981', bg: '#ECFDF5', href: '/HelplineScreen'           },
 ];
 
 function ModuleCard({ item, index }: { item: Module; index: number }) {
