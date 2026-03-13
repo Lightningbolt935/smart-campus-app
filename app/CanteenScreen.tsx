@@ -153,7 +153,7 @@ export default function CanteenScreen(){
 
       <View style={{flex:1}}>
         <Text style={styles.headerTitle}>
-          {restaurant==="All"?"Canteen":restaurant}
+          {restaurant==="All"?"Food Court":restaurant}
         </Text>
         <Text style={styles.headerSub}>
           SRM KTR · {RAW_MENU.length} items

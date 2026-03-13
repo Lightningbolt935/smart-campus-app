@@ -11,19 +11,22 @@ import {
 
 import * as Location from "expo-location";
 import MapView, { Marker } from "react-native-maps";
+import { useRouter } from "expo-router";
 
 import { buildings } from "../src/parking/buildings";
 import { calculateDistance } from "../src/parking/distanceUtils";
 import { parkingAreas } from "../src/parking/parkingLocations";
 
 export default function ParkingIDScreen() {
+
+  const router = useRouter();
+
   const [selectedBuilding, setSelectedBuilding] = useState(buildings[0]);
   const [parkingResult, setParkingResult] = useState<any>(null);
   const [distance, setDistance] = useState<number | null>(null);
   const [carLocation, setCarLocation] = useState<any>(null);
   const [userLocation, setUserLocation] = useState<any>(null);
 
-  // Find nearest parking
   const handleSuggestion = () => {
     let bestParking = parkingAreas[0];
     let shortestDistance = Infinity;
@@ -48,7 +51,6 @@ export default function ParkingIDScreen() {
     setDistance(shortestDistance);
   };
 
-  // Save parking GPS location
   const saveParkingSpot = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
 
@@ -69,7 +71,6 @@ export default function ParkingIDScreen() {
     alert("Parking location saved!");
   };
 
-  // Find my car (get user location)
   const findMyCar = async () => {
     if (!carLocation) {
       alert("No saved parking spot!");
@@ -95,8 +96,20 @@ export default function ParkingIDScreen() {
     <ScrollView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#F8F9FB" />
 
-      <Text style={styles.headerTitle}>Parking ID</Text>
-      <Text style={styles.headerSub}>Smart parking assistant</Text>
+      {/* Header with Back Button */}
+      <View style={styles.headerRow}>
+        <TouchableOpacity
+          style={styles.backBtn}
+          onPress={() => router.back()}
+        >
+          <Text style={styles.backText}>‹</Text>
+        </TouchableOpacity>
+
+        <View>
+          <Text style={styles.headerTitle}>Parking ID</Text>
+          <Text style={styles.headerSub}>Smart parking assistant</Text>
+        </View>
+      </View>
 
       {/* Building Selection */}
       <View style={styles.card}>
@@ -118,7 +131,6 @@ export default function ParkingIDScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Suggested Parking */}
       {parkingResult && (
         <View style={styles.resultCard}>
           <Text style={styles.resultTitle}>Suggested Parking</Text>
@@ -137,7 +149,6 @@ export default function ParkingIDScreen() {
         </View>
       )}
 
-      {/* Save Parking */}
       <View style={styles.card}>
         <Text style={styles.label}>Save your parking location</Text>
 
@@ -150,7 +161,6 @@ export default function ParkingIDScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Map View */}
       {userLocation && carLocation && (
         <MapView
           style={styles.map}
@@ -162,17 +172,11 @@ export default function ParkingIDScreen() {
             longitudeDelta: 0.01,
           }}
         >
-          <Marker
-            coordinate={userLocation}
-            title="You are here"
-            pinColor="blue"
-          />
-
+          <Marker coordinate={userLocation} title="You are here" pinColor="blue" />
           <Marker coordinate={carLocation} title="Your Car" pinColor="green" />
         </MapView>
       )}
 
-      {/* Saved GPS Coordinates */}
       {carLocation && (
         <View style={styles.resultCard}>
           <Text style={styles.resultTitle}>Saved Parking Location</Text>
@@ -191,11 +195,34 @@ export default function ParkingIDScreen() {
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     backgroundColor: "#F8F9FB",
     paddingTop: 60,
     paddingHorizontal: 20,
+  },
+
+  headerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+
+  backBtn: {
+    width: 38,
+    height: 38,
+    borderRadius: 10,
+    backgroundColor: "#E5E7EB",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 12,
+  },
+
+  backText: {
+    fontSize: 22,
+    fontWeight: "700",
+    color: "#111827",
   },
 
   headerTitle: {
@@ -284,4 +311,5 @@ const styles = StyleSheet.create({
     color: "#374151",
     marginBottom: 4,
   },
+
 });
