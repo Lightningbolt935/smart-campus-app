@@ -4,7 +4,7 @@
     "slug": "smart-campus-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/campus.jpeg",
     "scheme": "smartcampusapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
