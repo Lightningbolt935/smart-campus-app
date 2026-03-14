@@ -7,7 +7,7 @@ const GEMINI_URL =
   'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
 
 export async function askGemini(userQuestion: string): Promise<string> {
-  if (!GEMINI_API_KEY || GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_HERE') {
+  if (!GEMINI_API_KEY || GEMINI_API_KEY === 'AIzaSyB6vw0ep-9jXlOmJDblJA45WN6lFJ0z46k') {
     return 'Gemini API key is not configured. Please add your key in src/api/gemini.ts.';
   }
 
