@@ -195,12 +195,12 @@ export const busRoutes: BusRoute[] = [
     ],
   },
   {
-    route_no: "66A", route_name: "Thirumangalam", campusArrival: "07:40",
+    route_no: "66A", route_name: "Thirumangalam", campusArrival: "10:59",
     stops: [
-      { stop: "Anna Nagar Roundana", time: "06:30" },
-      { stop: "Shanthi Colony", time: "06:35" },
-      { stop: "Thirumangalam", time: "06:38" },
-      { stop: "Rohini Theatre", time: "06:40" },
+      { stop: "Anna Nagar Roundana", time: "10:30" },
+      { stop: "Shanthi Colony", time: "10:35" },
+      { stop: "Thirumangalam", time: "10:38" },
+      { stop: "Rohini Theatre", time: "10:40" },
     ],
   },
   {
