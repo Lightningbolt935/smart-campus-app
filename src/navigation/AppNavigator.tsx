@@ -5,6 +5,7 @@ import React from "react";
 import BusTrackingScreen from "../../app/BusTrackingScreen";
 import CampusMapScreen from "../../app/CampusMapScreen";
 import CanteenScreen from "../../app/CanteenScreen";
+import ChatbotScreen from "../../app/ChatbotScreen";
 import DashboardScreen from "../../app/DashboardScreen";
 import HelplineScreen from "../../app/HelplineScreen";
 import ParkingIDScreen from "../../app/parking-id";
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   CampusMap: undefined;
   ParkingID: undefined;
   Helpline: undefined;
+  Chatbot: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -33,6 +35,7 @@ export default function AppNavigator() {
         <Stack.Screen name="CampusMap" component={CampusMapScreen} />
         <Stack.Screen name="ParkingID" component={ParkingIDScreen} />
         <Stack.Screen name="Helpline" component={HelplineScreen} />
+        <Stack.Screen name="Chatbot" component={ChatbotScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
